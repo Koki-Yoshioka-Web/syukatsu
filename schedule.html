@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>スケジュール一覧</title>
+    <link rel="stylesheet" href="sub.css" />
+  </head>
+  <body>
+    <h1>スケジュール一覧</h1>
+    <a href="index.html">TOPへ</a>
+
+    <ul id="taskList"></ul>
+
+    <script>
+      // スケジュールのデータを取得し表示
+      const scheduleList = document.getElementById("scheduleList");
+      const schedules = JSON.parse(localStorage.getItem("schedules")) || [];
+
+      schedules.forEach((schedule) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${schedule.date}: ${schedule.task}`;
+        scheduleList.appendChild(listItem);
+      });
+    </script>
+    <script src="schedule.js"></script>
+    <script src="script.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

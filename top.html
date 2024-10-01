@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ログイン</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+      form {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(171, 21, 21, 0.1);
+      }
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .button button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 250px;
+        margin: 0 auto;
+        padding: 0.9em 2em;
+        border: none;
+        border-radius: 25px;
+        background-color: #2589d0;
+        color: #fff;
+        font-weight: 600;
+        font-size: 1em;
+      }
+
+      .button:hover {
+        animation: anime-button-38 0.3s linear infinite;
+      }
+
+      @keyframes anime-button-38 {
+        20% {
+          transform: translate(-2px, 2px);
+        }
+        40% {
+          transform: translate(-2px, -2px);
+        }
+        60% {
+          transform: translate(2px, 2px);
+        }
+        80% {
+          transform: translate(2px, -2px);
+        }
+      }
+
+      /* 以下はレイアウト調整用 */
+    </style>
+  </head>
+  <body>
+    <form id="loginForm">
+      <h2>合言葉聞きたいな〜</h2>
+      <input type="password" id="password" placeholder="パスワード" required />
+      <div class="button"><button type="submit">ログイン</button></div>
+    </form>
+
+    <script>
+      const correctPassword = "Kouki1219";
+      const loginForm = document.getElementById("loginForm");
+
+      loginForm.addEventListener("submit", function (e) {
+        e.preventDefault(); // フォームのデフォルト動作を防止
+        const passwordInput = document.getElementById("password").value;
+
+        if (passwordInput === correctPassword) {
+          window.location.href = "index.html"; // 正しいパスワードの場合、index.htmlにリダイレクト
+        } else {
+          alert("パスワードが間違っています。もう一度試してください。");
+        }
+      });
+    </script>
+  </body>
+</html>

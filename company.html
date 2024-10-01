@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>会社情報一覧</title>
+    <link rel="stylesheet" href="sub.css" />
+    <style>
+      /* Add border style to the company list */
+      #companyList {
+        border: 1px solid black;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>会社情報一覧</h1>
+    <a href="index.html">TOPへ</a>
+    <ul id="companyList"></ul>
+
+    <script>
+      // 会社情報のデータを取得し表示
+      const companyList = document.getElementById("companyList");
+      const companies = JSON.parse(localStorage.getItem("companies")) || [];
+
+      companies.forEach((company) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = `会社名: ${company.name}, URL: ${company.url}, パスワード: ${company.password}`;
+        companyList.appendChild(listItem);
+
+        const separator = document.createElement("hr"); // Add a horizontal line separator
+        companyList.appendChild(separator);
+      });
+    </script>
+
+    <script src="script.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
